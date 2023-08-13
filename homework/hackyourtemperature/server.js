@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
 app.post('/weather', (req, res) => {
   const cityName = req.body.cityName;
   if (!cityName) {
-    res.status(404).send('City name is required!');
+    res.status(400).send('City name is required!');
   } else {
     res.send(`City name ${cityName} added!`);
   }
