@@ -10,6 +10,9 @@ app.get('/', (req, res) => {
 
 app.post('/weather', async (req, res) => {
   const { cityName } = req.body;
+    if (!cityName || !/^[a-zA-Z]+$/.test(cityName)) {
+    return res.status(400).json({ error: 'Invalid cityName provided' });
+  }
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`;
 
   try {
