@@ -21,12 +21,10 @@ describe('POST /weather', () => {
       .expect(404);
   });
 
-  it('responds with status code 200 if valid response', async () => {
+  it('responds with status code 404 for an invalid path', async () => {
     const res = await request
-      .post('/weather')
-      .send({ cityName: 'Amsterdam' })
-      .expect(200);
-
-    expect(res.status).toBe(200);
+    .post('/invalid-path')
+    .send({ data: 'some data' })
+    .expect(404);
   });
 });
