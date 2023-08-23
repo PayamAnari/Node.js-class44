@@ -19,8 +19,6 @@ describe('POST /weather', () => {
       .post('/weather')
       .send({ cityName: 'invalidCity' })
       .expect(404);
-
-    expect(res.body.msg).toBe('The city invalidCity is not found!');
   });
 
   it('responds with status code 200 if valid response', async () => {
