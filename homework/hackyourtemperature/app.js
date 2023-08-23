@@ -23,7 +23,7 @@ app.post('/weather', async (req, res) => {
       const temperature = data.main.temp;
       res.send({ city: cityName, temperature: temperature });
     } else {
-      res.status(404).send({ msg: `The city ${cityName} is not found!` });
+      res.status(400).send({ msg: `The city ${cityName} is not found!` });
     }
   } catch (error) {
     res
