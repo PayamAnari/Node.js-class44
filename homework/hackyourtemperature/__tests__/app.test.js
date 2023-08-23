@@ -7,9 +7,9 @@ describe('POST /weather', () => {
   it('responds with a weather message for a valid city', async () => {
     const res = await request
       .post('/weather')
-      .send({ cityName: 'London' })
-      .expect(200);
-
+      .send({ cityName: 'London' });
+      
+    expect(res.statusCode).toBe(200);
     expect(res.body.city).toBeDefined();
     expect(res.body.temperature).toBeDefined();
   });
