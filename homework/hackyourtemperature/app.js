@@ -27,7 +27,7 @@ app.post('/weather', async (req, res) => {
     }
   } catch (error) {
     res
-      .status(404)
+      .status(500)
       .send({ msg: `Error fetching weather data for ${cityName}` });
   }
 });
